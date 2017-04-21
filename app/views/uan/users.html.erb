@@ -4,7 +4,7 @@
 	<div class="panel panel-default">
 	  <!-- Default panel contents -->
 
-	  <div class="panel-heading">Usuarios</div>
+	  <div class="panel-heading text-center">Usuarios de UAN</div>
 
 	  <!-- Table -->
 	 
@@ -13,16 +13,26 @@
 	      <thead>
 		    <tr>
 		      <th>#</th>
-		      <th>Name</th>
-		      <th>Username</th>
-		      <th>Comments</th>
+		      <th>Nombre</th>
+		      <th>Usuario</th>
+		      <th>Commentarios</th>
 		      <th colspan="3"></th>
 		    </tr>
 	  	</thead>
 
-	  	<%= @users %>
+	  	<tbody>
+	  	    <% n = 0 %>
+	  		<% @users.each do |user| %>
+	  			<tr>
+	  				<td><%= n += 1 %></td>
+	  				<td><%= user.name %></td>
+	  				<td>@<%= user.username %></td>
+	  				<td><%= user.comments_count %></td>
+	  			</tr>
+	  		<% end %>
+	  	</tbody>
 	  </table>
 	  
 	</div>
-	
 </div>
+

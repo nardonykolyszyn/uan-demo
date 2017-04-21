@@ -22,12 +22,22 @@
           <li><a href="#"><%= icon('bell', class: 'strong') %> Servicios <span class="badge" style="background-color: red;">0</span></a></li>
           <li><a href="/noticias"><%= icon('newspaper-o', class: 'strong') %> Noticias</a></li>
           <% if user_signed_in? %>
-            <li><a href="/usuarios"><%= icon('address-book', class: 'strong') %> Usuarios</a></li>
-            <li><a href="/perfil"><%= icon('user', class: 'strong') %> Perfil</a></li>
+            <li><a href="/usuarios"><%= icon('group', class: 'strong') %> Usuarios</a></li>
+            <li class="dropdown" role="presentation">
+              <a href="/perfil" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopud="true" aria-expanded="false"><%= icon('user', class: 'strong') %> Perfil <span class="caret"></span>
+              </a>
+
+              <ul class="dropdown-menu"  aria-labelledby="dropdownMenuDivider">
+                <li class="dropdown-header">Opciones</li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/users/edit/"><%= icon 'gear'%> Editar cuenta</a></li>
+                <li><a rel="nofollow" data-method="delete" href="/users/sign_out"><%= icon('sign-out') %> Cerrar sesión</a></li>
+              </ul>
+            </li>
           <% else %>
-            <li><a href="/users/sign_in"><%= icon('user', class: 'strong') %> Iniciar</a></li
+
+            <li><a href="/users/sign_in"><%= icon('user', class: 'strong') %> Iniciar</a></li>
           <% end %>
-        </ul>
       </div>
     </div>
   </div>

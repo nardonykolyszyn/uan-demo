@@ -4,7 +4,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col col-xs-6 col-xs-offset-3">
+		<div class="col col-sm-12 col-md-6 col-md-offset-3">
 			<div class="well">
 			<span class="badge"><%= @notice.created_at %></span><br><br>
 				<p class="text-paragraph"><%= @notice.content %></p><br>
@@ -22,10 +22,11 @@
 					  </div>
 					  <div class="media-body">
 					    <h4 class="media-heading" id="user-name"><%= comment.user.name %></h4>
-					    <p id="comment-date"><%= comment.created_at %></p><br>
+					    <p id="comment-date"><%= comment.created_at %></p>
 					    <div id="comment-body"><%= comment.content %></div>  
 					  </div>
 					</div>
+					<hr>
 					<% end %>
 				</div>
 			</div>
