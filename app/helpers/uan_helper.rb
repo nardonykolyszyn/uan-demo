@@ -1,0 +1,2 @@
+module UanHelper
+end

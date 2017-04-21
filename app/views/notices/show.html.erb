@@ -1,0 +1,45 @@
+<div class="jumbotron" style="background: url(<%= @notice.image.url %>); background-position: center; background-size: cover; background-repeat: no-repeat; height: 150px; color: white;">
+  <h1 class="text-center"><%= "Noticias"%></h1>	
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col col-xs-6 col-xs-offset-3">
+			<div class="well">
+			<span class="badge"><%= @notice.created_at %></span><br><br>
+				<p class="text-paragraph"><%= @notice.content %></p><br>
+				<i>Escrito por <%= @notice.user.name %></i><hr>
+			<h4>Comentarios</h4>
+			<!-- Comments Box -->
+			<% @comments.each do |comment| %>
+		<div class="row">
+				<div class="col col-xs-10 ">
+				<div class="media">
+					  <div class="media-left">
+					    <a href="#">
+					      <img class="media-object" src="/avatar.png" alt="Foto de perfil" width="60" height="60">
+					    </a>
+					  </div>
+					  <div class="media-body">
+					    <h4 class="media-heading" id="user-name"><%= comment.user.name %></h4>
+					    <p id="comment-date"><%= comment.created_at %></p><br>
+					    <div id="comment-body"><%= comment.content %></div>  
+					  </div>
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<%= render(partial: 'comments/form', locals: { comment: @comment }) %>
+	
+
+
+
+<%= link_to 'Edit', edit_notice_path(@notice) %> |
+<%= link_to 'Back', notices_path %>
+
+

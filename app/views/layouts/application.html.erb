@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UANApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="navbar navbar-default normal-navbar">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+          <span class="fa fa-navicon"></span>
+        </button>
+        <a href="/" class="navbar-brand">UAN <small>Universidad Atlántica Nacional</small></a>
+      </div>
+      <div class="collapse navbar-collapse normal-navbar" id="menu">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><%= icon('bell', class: 'strong') %> Servicios <span class="badge" style="background-color: red;">0</span></a></li>
+          <li><a href="/noticias"><%= icon('newspaper-o', class: 'strong') %> Noticias</a></li>
+          <% if user_signed_in? %>
+            <li><a href="/usuarios"><%= icon('address-book', class: 'strong') %> Usuarios</a></li>
+            <li><a href="/perfil"><%= icon('user', class: 'strong') %> Perfil</a></li>
+          <% else %>
+            <li><a href="/users/sign_in"><%= icon('user', class: 'strong') %> Iniciar</a></li
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+    <%= yield %>
+  </body>
+</html>

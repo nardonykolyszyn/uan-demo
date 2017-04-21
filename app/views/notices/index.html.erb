@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<div class="row">
+<div class="col-xs-6 col-xs-offset-3 text-center">
+  <h1 class="page-header text-align">Noticias</h1>
+</div>
+  
+    
+    <% @notices.each do |notice| %>
+    <div class="col-xs-4">
+    <div class="thumbnail">
+      <%= image_tag(notice.image.url, id: notice.id) if notice.image_stored? %>
+      <div class="caption">
+        <p><%= notice.content.truncate(180) %><%= link_to '[...]', notice %></p>
+        <a href="/notices/<%= notice.id %>" style="color: #fff;" class="btn btn-primary" role="button">Ver</a>
+        <%= link_to 'Eliminar', notice, method: :delete, data: { confirm: 'Estas seguro?' }, class: 'normal-link btn btn-danger', style: 'color: white;' %>
+      </div>
+    </div>
+    </div>
+    <% end %>
+</div>
+</div>
+<%= link_to 'Crear noticia', new_notice_path, class: 'btn btn-success btn-block btn-md', style: 'color: white;' %>
